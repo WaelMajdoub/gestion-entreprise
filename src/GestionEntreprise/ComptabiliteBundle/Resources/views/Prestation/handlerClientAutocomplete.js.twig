@@ -1,0 +1,51 @@
+﻿
+    $(function() {
+        var clientLibelle ="";
+        var clientId ="";
+        $( "#gestionentreprise_comptabilitebundle_prestationtype_client" ).autocomplete({
+            source: function( request, response ) {
+                var request = $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url:  "{{ path('GestionEntrepriseComptabiliteBundle_prestation_selectClient') }}",
+                    data: "nameWith=" + request.term
+                });
+                
+                request.done(function( serviceResponse ) {
+                    response( $.map( serviceResponse, function( clientItem ) {
+                        var clientLabel = clientItem.nom;
+                        if (clientItem.prenom) {
+                            clientLabel = clientLabel + " " + clientItem.prenom;
+                        }
+                        if (clientItem.adresse) {
+                            clientLabel = clientLabel + " ("+ clientItem.adresse.ville + ")";
+                        }
+                        return {
+                            label: clientLabel,
+                            value: clientItem.id
+                        }
+                    }));
+                });
+                    
+                request.fail(function(jqXHR, textStatus) {
+                    alert( "Request failed: " + textStatus );
+                });
+            },
+            minLength: 2,
+            select: function( event, ui ) {
+                if (ui.item) {
+                    clientLibelle = ui.item.label;
+                    clientId = ui.item.value;
+                } else {
+                    clientLibelle = this.value;
+                }
+            },
+            focus: function( event, ui ) {
+                return false;
+            },
+            close: function() {
+                $("#gestionentreprise_comptabilitebundle_prestationtype_client").val(clientLibelle);
+                $("#gestionentreprise_comptabilitebundle_prestationtype_client").attr("item-id", clientId);
+            }
+        });
+    });

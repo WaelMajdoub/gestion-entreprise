@@ -1,0 +1,12 @@
+GestionEntrepriseComptabiliteBundle:
+    resource: "@GestionEntrepriseComptabiliteBundle/Resources/config/routing.yml"
+    prefix:   /comptabilite
+
+GestionEntrepriseParametrageBundle:
+    resource: "@GestionEntrepriseParametrageBundle/Resources/config/routing.yml"
+    prefix:   /parametrage
+
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal

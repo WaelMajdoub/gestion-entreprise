@@ -1,0 +1,52 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Categorie de prestation{% endblock %}
+
+{% block gestparam_body %}
+
+
+    <a href="{{ path('GestionEntrepriseParametrageBundle_ajoutCategoriePrestation') }}">Ajouter une catégorie de prestation</a>
+    
+    {% for typeClient in typesClient %}
+
+    <h3>
+        {{ typeClient.libelle }}
+    </h3>
+    
+    <table class="grille">
+        <tr>
+            <th>Description</th>
+            <th></th>
+        <tr>
+        
+        {% for categoriePrestation in categoriesPrestation %}
+        {% if (categoriePrestation.typeClient == typeClient) %}
+        <tr>
+            <td>
+                {{ categoriePrestation.libelle }}
+            </td>
+            <td>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_modifierCategoriePrestation', {'id': categoriePrestation.id}) }}">
+                    {% image '../app/Resources/public/images/modifier.png' %}
+                    <img src="{{ asset_url }}" alt="Modifier" title="Modifier"/>
+                    {% endimage %}
+                </a>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_supprimerCategoriePrestation', {'id': categoriePrestation.id}) }}">
+                    {% image '../app/Resources/public/images/supprimer.png' %}
+                    <img src="{{ asset_url }}" alt="Supprimer" title="Supprimer"/>
+                    {% endimage %}
+                </a>
+            </td>
+        <tr>
+        {% endif %}
+        {% else %}
+			<td colspan=3>Aucune donnée ...</td>
+		{% endfor %}
+        
+    </table>
+    
+    {% else %}
+    <p>Aucune donnée ...</p>
+    {% endfor %}
+	
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Types de client{% endblock %}
+
+{% block gestparam_body %}
+
+
+    <a href="{{ path('GestionEntrepriseParametrageBundle_ajoutTypeClient') }}">Ajouter un type de client</a>
+    
+    {% if typesClient|length > 0 %}
+    <table class="grille">
+        <tr>
+            <th>Description</th>
+            <th></th>
+        <tr>
+        
+        {% for typeClient in typesClient %}
+        <tr>
+            <td>
+                {{ typeClient.libelle }}
+            </td>
+            <td>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_modifierTypeClient', {'id': typeClient.id}) }}">
+                    {% image '../app/Resources/public/images/modifier.png' %}
+                    <img src="{{ asset_url }}" alt="Modifier" title="Modifier"/>
+                    {% endimage %}
+                </a>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_supprimerTypeClient', {'id': typeClient.id}) }}">
+                    {% image '../app/Resources/public/images/supprimer.png' %}
+                    <img src="{{ asset_url }}" alt="Supprimer" title="Supprimer"/>
+                    {% endimage %}
+                </a>
+            </td>
+        <tr>
+        {% endfor %}
+        
+    </table>
+    {% else %}
+    <p>Aucune donnée ...</p>
+    {% endif %}
+{% endblock %}

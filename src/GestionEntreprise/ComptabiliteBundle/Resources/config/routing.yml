@@ -1,0 +1,28 @@
+# Prestation
+GestionEntrepriseComptabiliteBundle_listePrestation:
+    pattern:  /prestation/liste
+    defaults: { _controller: GestionEntrepriseComptabiliteBundle:Prestation:liste }
+
+GestionEntrepriseComptabiliteBundle_ajoutPrestation:
+    pattern:  /prestation/ajout
+    defaults: { _controller: GestionEntrepriseComptabiliteBundle:Prestation:ajout }    
+
+GestionEntrepriseComptabiliteBundle_prestation_selectClient:
+    pattern:  /prestation/selectClient
+    defaults: { _controller: GestionEntrepriseComptabiliteBundle:Prestation:selectClient }
+    requirements:
+        _method: POST  
+
+GestionEntrepriseComptabiliteBundle_prestation_selectTypePrestation:
+    pattern:  /prestation/selectTypePrestation
+    defaults: { _controller: GestionEntrepriseComptabiliteBundle:Prestation:selectTypePrestation }
+    requirements:
+        _method: POST  
+
+GestionEntrepriseComptabiliteBundle_modifierPrestation:
+    pattern:  /prestation/modifier/{id}
+    defaults: { _controller: GestionEntrepriseComptabiliteBundle:Prestation:modifier }    
+
+GestionEntrepriseComptabiliteBundle_supprimerPrestation:
+    pattern:  /prestation/supprimer/{id}
+    defaults: { _controller: GestionEntrepriseComptabiliteBundle:Prestation:supprimer }    

@@ -1,0 +1,72 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Clients{% endblock %}
+
+{% block gestparam_body %}
+
+	<h2>Ajouter un client</h2>
+	
+    <form method="post" {{ form_enctype(form) }}>
+        
+        {{ form_errors(form) }}
+
+        <fieldset>
+            <legend><strong>Client</strong></legend>
+            <table>
+                <tr>
+                    <td>{{ form_label(form.civilite) }}</td>
+                    <td>{{ form_widget(form.civilite) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.nom) }}</td>
+                    <td>{{ form_widget(form.nom) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.prenom) }}</td>
+                    <td>{{ form_widget(form.prenom) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.telephone) }}</td>
+                    <td>{{ form_widget(form.telephone) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.telephone2) }}</td>
+                    <td>{{ form_widget(form.telephone2) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.email) }}</td>
+                    <td>{{ form_widget(form.email) }}</td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend><strong>Adresse</strong></legend>
+            <table>
+                <tr>
+                    <td>{{ form_label(form.adresse.libelle1) }}</td>
+                    <td>{{ form_widget(form.adresse.libelle1) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.adresse.libelle2) }}</td>
+                    <td>{{ form_widget(form.adresse.libelle2) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.adresse.codePostal) }}</td>
+                    <td>{{ form_widget(form.adresse.codePostal) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.adresse.ville) }}</td>
+                    <td>{{ form_widget(form.adresse.ville) }}</td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        <!-- Génération des champs pas encore écrits.
+         Dans cet exemple, ça serait le champ CSRF (géré automatiquement par Symfony !)
+         et tous les champs cachés (type « hidden »). -->
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Ok"/>
+    </form>
+    
+{% endblock %}

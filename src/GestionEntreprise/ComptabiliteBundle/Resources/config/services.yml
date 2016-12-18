@@ -1,0 +1,7 @@
+parameters:
+#    gestion_entreprise_comptabilite.example.class: GestionEntreprise\ComptabiliteBundle\Example
+
+services:
+#    gestion_entreprise_comptabilite.example:
+#        class: %gestion_entreprise_comptabilite.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,56 @@
+{% extends "GestionEntrepriseComptabiliteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Types de prestations{% endblock %}
+
+{% block gestparam_body %}
+
+    <a href="{{ path('GestionEntrepriseComptabiliteBundle_ajoutPrestation') }}">Ajouter une prestation</a>
+    
+    {% if prestations|length > 0 %}
+    <table class="grille">
+        <tr>
+            <th>Date</th>
+            <th>Client</th>
+            <th>Type de prestation</th>
+            <th>Tarif</th>
+            <th>Moyen de paiement</th>
+            <th></th>
+        <tr>
+        
+        {% for prestation in prestations %}
+        <tr>
+            <td>
+                {{ prestation.date|date("d/m/Y") }}
+            </td>
+            <td>
+                {{ prestation.client.nom }} {{ prestation.client.prenom }} ({{ prestation.client.adresse.ville }})
+            </td>
+            <td>
+                {{ prestation.typePrestation.libelle }}
+            </td>
+            <td>
+                {{ prestation.tarif }}
+            </td>
+            <td>
+                {{ prestation.moyenDePaiement.libelle }}
+            </td>
+            <td>
+                <a href="{{ path('GestionEntrepriseComptabiliteBundle_modifierPrestation', {'id': prestation.id}) }}">
+                    {% image '../app/Resources/public/images/modifier.png' %}
+                    <img src="{{ asset_url }}" alt="Modifier" title="Modifier"/>
+                    {% endimage %}
+                </a>
+                <a href="{{ path('GestionEntrepriseComptabiliteBundle_supprimerPrestation', {'id': prestation.id}) }}">
+                    {% image '../app/Resources/public/images/supprimer.png' %}
+                    <img src="{{ asset_url }}" alt="Supprimer" title="Supprimer"/>
+                    {% endimage %}
+                </a>
+            </td>
+        <tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Aucune donnée ...</p>
+    {% endif %}
+    
+{% endblock %}

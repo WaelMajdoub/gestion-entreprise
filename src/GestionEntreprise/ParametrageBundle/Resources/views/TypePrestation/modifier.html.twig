@@ -1,0 +1,31 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Tarifs{% endblock %}
+
+{% block gestparam_body %}
+
+	<h2>Modifier un type de prestation</h2>
+	
+    <form method="post" {{ form_enctype(form) }}>
+	
+        {{ form_errors(form) }}
+
+        {{ form_row(form.libelle) }}
+        {{ form_row(form.tarif) }}
+        {{ form_row(form.useProduit) }}
+        {{ form_row(form.typeClient) }}
+        {{ form_row(form.categoriesPrestation) }}
+
+        
+        <!-- Génération des champs pas encore écrits.
+         Dans cet exemple, ça serait « date », « pseudo » et « tags »,
+         mais aussi le champ CSRF (géré automatiquement par Symfony !)
+         et tous les champs cachés (type « hidden »). -->
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Ok"/>
+    </form>
+    
+    {% include 'GestionEntrepriseParametrageBundle:TypePrestation:handlerTypeClientSelection.html.twig' %}
+    
+{% endblock %}

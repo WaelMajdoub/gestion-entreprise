@@ -1,0 +1,19 @@
+﻿
+    $("#gestionentreprise_comptabilitebundle_prestationtype_typePrestation").change(function() {
+        var request = $.ajax({
+            type: "POST",
+            dataType: "json",
+            url:  "{{ path('GestionEntrepriseComptabiliteBundle_prestation_selectTypePrestation') }}",
+            data: "idTypePrestation=" + $(this).val()
+        });
+        
+        request.done(function(response) {
+            if (response)
+                $("#gestionentreprise_comptabilitebundle_prestationtype_tarif").val(response.tarif);
+        });
+        
+        request.fail(function(jqXHR, textStatus) {
+            alert( "Request failed: " + textStatus + "\nDétail : " + jqXHR.responseText);
+        });
+    
+    });

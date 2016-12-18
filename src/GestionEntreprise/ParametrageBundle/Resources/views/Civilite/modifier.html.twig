@@ -1,0 +1,15 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Civilité{% endblock %}
+
+{% block gestparam_body %}
+
+	<h2>Modifier une civilité</h2>
+	
+    <form method="post" {{ form_enctype(form) }}>
+	
+        {{ form_widget(form) }}
+        
+        <input type="submit" value="OK" />
+    </form>
+{% endblock %}

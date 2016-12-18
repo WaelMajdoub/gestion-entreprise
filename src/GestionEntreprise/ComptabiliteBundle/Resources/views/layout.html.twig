@@ -1,0 +1,24 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Comptabilité {% endblock %}
+
+{% block stylesheets %}
+    {{ parent () }}
+    
+    {% stylesheets '@GestionEntrepriseComptabiliteBundle/Resources/public/css/*' output='css/comptabilite.css'%}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    
+    <div id="menu_parametrage">
+        <div class="element_menu">
+            <a href="{{ path('GestionEntrepriseComptabiliteBundle_listePrestation') }}">Prestations</a>
+        </div>
+    </div>
+
+	{% block gestparam_body %}
+	{% endblock %}
+	
+{% endblock %}

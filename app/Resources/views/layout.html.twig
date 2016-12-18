@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Gestion Entreprise{% endblock %}</title>
+
+        {% block stylesheets %}
+            {% stylesheets '../app/Resources/public/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+            {% endstylesheets %}    
+        {% endblock %}
+            
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script> 
+        
+    </head>
+    
+    <body>
+        <div id="en_tete">
+            <h1>Gestion Entreprise</h1>
+        </div> 
+ 
+        <div id="menu">
+            <div class="element_menu">
+                <a href="{{ path('GestionEntrepriseComptabiliteBundle_listePrestation') }}">Comptabilité</a>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_accueil') }}">Suivi</a>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_accueil') }}">Parametrage</a>
+            </div>
+        </div>
+    
+        <div id="corps">
+        
+            {% block body %}
+            {% endblock %}
+            
+        </div> 
+
+        <div id="pied_de_page"> 
+            <p>Hair Style - Gestion Entreprise</p> 
+        </div>
+    </body>
+</html>

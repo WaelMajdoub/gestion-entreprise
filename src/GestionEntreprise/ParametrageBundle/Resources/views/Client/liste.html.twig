@@ -1,0 +1,74 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Clients{% endblock %}
+
+{% block gestparam_body %}
+
+
+    <a href="{{ path('GestionEntrepriseParametrageBundle_ajoutClient') }}">Ajouter un client</a>
+    
+    {% if clients|length > 0 %}
+    <table class="grille">
+        <tr>
+            <th>Civilité</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Telephone</th>
+            <th>Telephone2</th>
+            <th>Code postal</th>
+            <th>Ville</th>
+            <th></th>
+        <tr>
+        
+        {% for client in clients %}
+        <tr>
+            <td>
+                {{ client.civilite }}
+            </td>
+            <td>
+                {{ client.nom }}
+            </td>
+            <td>
+                {{ client.prenom }}
+            </td>
+            <td>
+                {{ client.telephone }}
+            </td>
+            <td>
+                {{ client.telephone2 }}
+            </td>
+            {% if (client.adresse) is null %}
+            <td></td><td></td>
+            {% else %}
+            <td>
+                {{ client.adresse.codePostal }}
+            </td>
+            <td>
+                {{ client.adresse.ville }}
+            </td>
+            {% endif %}
+            <td>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_ajoutClientMemeAdresse', {'id': client.adresse.id}) }}">
+                    {% image '../app/Resources/public/images/ajouter.png' %}
+                    <img src="{{ asset_url }}" alt="Ajouter un client à la même adresse" title="Ajouter un client à la même adresse"/>
+                    {% endimage %}
+                </a>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_modifierClient', {'id': client.id}) }}">
+                    {% image '../app/Resources/public/images/modifier.png' %}
+                    <img src="{{ asset_url }}" alt="Modifier" title="Modifier"/>
+                    {% endimage %}
+                </a>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_supprimerClient', {'id': client.id}) }}">
+                    {% image '../app/Resources/public/images/supprimer.png' %}
+                    <img src="{{ asset_url }}" alt="Supprimer" title="Supprimer"/>
+                    {% endimage %}
+                </a>
+            </td>
+        <tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Aucune donnée ...</p>
+    {% endif %}
+    
+{% endblock %}

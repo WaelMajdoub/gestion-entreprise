@@ -1,0 +1,42 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Civilité{% endblock %}
+
+{% block gestparam_body %}
+
+
+    <a href="{{ path('GestionEntrepriseParametrageBundle_ajoutCivilite') }}">Ajouter une civilité</a>
+    
+    
+    {% if civilites|length > 0 %}
+    <table class="grille">
+        <tr>
+            <th>Description</th>
+            <th></th>
+        <tr>
+        
+        {% for civilite in civilites %}
+        <tr>
+            <td>
+                {{ civilite.libelle }}
+            </td>
+            <td>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_modifierCivilite', {'id': civilite.id}) }}">
+                    {% image '../app/Resources/public/images/modifier.png' %}
+                    <img src="{{ asset_url }}" alt="Modifier" title="Modifier"/>
+                    {% endimage %}
+                </a>
+                <a href="{{ path('GestionEntrepriseParametrageBundle_supprimerCivilite', {'id': civilite.id}) }}">
+                    {% image '../app/Resources/public/images/supprimer.png' %}
+                    <img src="{{ asset_url }}" alt="Supprimer" title="Supprimer"/>
+                    {% endimage %}
+                </a>
+            </td>
+        <tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Aucune donnée ...</p>
+    {% endif %}
+    
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Parametrage {% endblock %}
+
+{% block stylesheets %}
+    {{ parent () }}
+    
+    {% stylesheets 'bundles/gestionentrepriseparametrage/css/*' filter='cssrewrite' output='css/parametrage.css'%}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    
+    <div id="menu_parametrage">
+        <div class="element_menu">
+            <a href="{{ path('GestionEntrepriseParametrageBundle_listeClient') }}">Client</a>
+            <a href="{{ path('GestionEntrepriseParametrageBundle_listeTypesPrestation') }}">Types de prestation</a>
+			<a href="{{ path('GestionEntrepriseParametrageBundle_listeCategoriePrestation') }}">Catégories de prestation</a>
+            <a href="{{ path('GestionEntrepriseParametrageBundle_listeTypeClient') }}">Types de client</a>
+            <a href="{{ path('GestionEntrepriseParametrageBundle_listeMoyenDePaiement') }}">Moyens de paiement</a>
+            <a href="{{ path('GestionEntrepriseParametrageBundle_listeCivilite') }}">Civilités</a>
+        </div>
+    </div>
+
+	{% block gestparam_body %}
+	{% endblock %}
+	
+{% endblock %}

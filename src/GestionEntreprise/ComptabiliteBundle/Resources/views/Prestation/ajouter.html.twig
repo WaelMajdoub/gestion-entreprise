@@ -1,0 +1,69 @@
+{% extends "GestionEntrepriseComptabiliteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Prestation{% endblock %}
+
+{% block gestparam_body %}
+
+    <h2>Ajouter une prestation</h2>
+	
+    <form id="prestationform" method="post" {{ form_enctype(form) }}>
+        
+        {{ form_errors(form) }}
+        
+        <table>
+            <tr>
+                <td>{{ form_label(form.date) }}</td>
+                <td>{{ form_widget(form.date) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.client) }}</td>
+                <td>
+                    {{ form_widget(form.client) }} 
+                    <a href="{{ path('GestionEntrepriseParametrageBundle_ajoutClient') }}">
+                        {% image '../app/Resources/public/images/ajouter.png' %}
+                        <img src="{{ asset_url }}" alt="Ajouter un client" title="Ajouter un client"/>
+                        {% endimage %}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.typePrestation) }}</td>
+                <td>
+                    {{ form_widget(form.typePrestation) }}
+                    <a href="{{ path('GestionEntrepriseParametrageBundle_ajoutTypePrestation') }}">
+                        {% image '../app/Resources/public/images/ajouter.png' %}
+                        <img src="{{ asset_url }}" alt="Ajouter un type de prestation" title="Ajouter un type de prestation"/>
+                        {% endimage %}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.tarif) }}</td>
+                <td>{{ form_widget(form.tarif) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.moyenDePaiement) }}</td>
+                <td>{{ form_widget(form.moyenDePaiement) }}</td>
+            </tr>
+        </table>
+        
+        <!-- Génération des champs pas encore écrits.
+         Dans cet exemple, ça serait « date », « pseudo » et « tags »,
+         mais aussi le champ CSRF (géré automatiquement par Symfony !)
+         et tous les champs cachés (type « hidden »). -->
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Ok"/>
+    </form>
+    
+	<script>
+
+	$(document).ready(function() {    
+	{% include 'GestionEntrepriseComptabiliteBundle:Prestation:handlerClientAutocomplete.js.twig' %}
+    {% include 'GestionEntrepriseComptabiliteBundle:Prestation:handlerTypePrestationSelection.js.twig' %}
+    {% include 'GestionEntrepriseComptabiliteBundle:Prestation:handlerFormSubmit.js.twig' %}
+    {% include 'GestionEntrepriseComptabiliteBundle:Prestation:handlerDatePicker.js.twig' %}
+    });
+    </script>
+    
+{% endblock %}

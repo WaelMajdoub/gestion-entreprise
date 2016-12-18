@@ -1,0 +1,7 @@
+parameters:
+#    gestion_entreprise_parametrage.example.class: GestionEntreprise\ParametrageBundle\Example
+
+services:
+#    gestion_entreprise_parametrage.example:
+#        class: %gestion_entreprise_parametrage.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

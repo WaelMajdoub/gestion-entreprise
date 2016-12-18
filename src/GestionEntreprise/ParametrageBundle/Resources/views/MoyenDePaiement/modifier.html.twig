@@ -1,0 +1,24 @@
+{% extends "GestionEntrepriseParametrageBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Moyen de Paiement{% endblock %}
+
+{% block gestparam_body %}
+
+	<h2>Modifier un moyen de paiement</h2>
+	
+    <form method="post" {{ form_enctype(form) }}>
+	
+        {{ form_errors(form) }}
+
+        {{ form_row(form.libelle) }}
+        {{ form_row(form.defaut) }}
+        
+        <!-- Génération des champs pas encore écrits.
+         Dans cet exemple, ça serait « date », « pseudo » et « tags »,
+         mais aussi le champ CSRF (géré automatiquement par Symfony !)
+         et tous les champs cachés (type « hidden »). -->
+        {{ form_rest(form) }}
+        
+        <input type="submit" value="OK" />
+    </form>
+{% endblock %}

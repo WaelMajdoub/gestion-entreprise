@@ -1,0 +1,22 @@
+#corps .element_menu a:hover
+{
+    background-image:url("../images/degrade.png");
+    background-repeat: repeat-x;
+	/*background-color:purple;*/
+    border: 1px solid purple;
+    color:white;
+    
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: #666 0px 6px 9px;
+    -moz-box-shadow: #666 0px 6px 9px;
+    box-shadow: #666 0px 6px 9px;
+}
+
+#menu_parametrage {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    
+}

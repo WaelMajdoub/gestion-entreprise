@@ -1,0 +1,56 @@
+﻿<script>
+
+$(document).ready(function() {
+    $("#gestionentreprise_parametragebundle_typeprestationtype_typeClient").change(function() {
+        var request = $.ajax({
+            type: "POST",
+            dataType: "json",
+            url:  "{{ path('GestionEntrepriseParametrageBundle_typesPrestation_selectTypeClient') }}",
+            data: "idTypeClient=" + $(this).val()            
+        });
+        
+        request.done(function(response) {
+            /*if (msg != ''){
+                $('#gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation').html(msg).show();
+            }
+            else
+            {
+                $('#gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation').html('<em>No item result</em>');
+            }*/
+            /*
+            $('#gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation').empty();
+            $.each(response, function(key, categorie) {
+                $('<option/>', {
+                    html: categorie.libelle
+                }).attr({value: categorie.id}).appendTo('#gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation');
+            });
+            */
+            $('#gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation').empty();
+            $.each(response, function(key, categorie) {
+                $('<input/>')
+                    .attr({
+                        type: "checkbox",
+                        id: "gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation_"+categorie.id,
+                        name: "gestionentreprise_parametragebundle_typeprestationtype[categoriesPrestation]["+categorie.id+"]",
+                        value: categorie.id
+                    })
+                    .appendTo('#gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation');
+                $('<label/>', {html: categorie.libelle})
+                    .attr({
+                        for: "gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation_"+categorie.id
+                    })
+                    .appendTo('#gestionentreprise_parametragebundle_typeprestationtype_categoriesPrestation');
+            });
+            
+            
+        });
+        
+        request.fail(function(jqXHR, textStatus) {
+            alert( "Request failed: " + textStatus );
+        });
+    });
+    
+});
+    
+    
+</script>

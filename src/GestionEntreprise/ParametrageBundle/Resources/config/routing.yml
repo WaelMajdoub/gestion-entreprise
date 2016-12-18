@@ -1,0 +1,131 @@
+GestionEntrepriseParametrageBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypePrestation:index }
+
+GestionEntrepriseParametrageBundle_accueil:
+    pattern:  /
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypePrestation:liste }
+
+
+# Types de prestation
+GestionEntrepriseParametrageBundle_listeTypesPrestation:
+    pattern:  /typeprestation/liste
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypePrestation:liste }
+
+GestionEntrepriseParametrageBundle_ajoutTypePrestation:
+    pattern:  /typeprestation/ajout
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypePrestation:ajout }
+    
+GestionEntrepriseParametrageBundle_modifierTypePrestation:
+    pattern:  /typeprestation/modifier/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypePrestation:modifier }
+
+GestionEntrepriseParametrageBundle_supprimerTypePrestation:
+    pattern:  /typeprestation/supprimer/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypePrestation:supprimer }
+
+GestionEntrepriseParametrageBundle_typesPrestation_selectTypeClient:
+    pattern:  /typeprestation/liste/selectTypeClient
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypePrestation:selectTypeClient }
+    requirements:
+        _method: POST
+
+
+# Clients
+GestionEntrepriseParametrageBundle_listeClient:
+    pattern:  /client/liste
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Client:liste }
+    
+GestionEntrepriseParametrageBundle_ajoutClient:
+    pattern:  /client/ajout
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Client:ajout }
+
+GestionEntrepriseParametrageBundle_ajoutClientMemeAdresse:
+    pattern:  /client/ajoutmemeadresse/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Client:ajoutClientMemeAdresse }
+    
+GestionEntrepriseParametrageBundle_modifierClient:
+    pattern:  /client/modifier/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Client:modifier }
+
+GestionEntrepriseParametrageBundle_supprimerClient:
+    pattern:  /client/supprimer/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Client:supprimer }
+    
+    
+# Catégorie de prestation
+GestionEntrepriseParametrageBundle_listeCategoriePrestation:
+    pattern:  /categorieprestation/liste
+    defaults: { _controller: GestionEntrepriseParametrageBundle:CategoriePrestation:liste }
+
+
+GestionEntrepriseParametrageBundle_ajoutCategoriePrestation:
+    pattern:  /categorieprestation/ajout
+    defaults: { _controller: GestionEntrepriseParametrageBundle:CategoriePrestation:ajout }
+    
+GestionEntrepriseParametrageBundle_modifierCategoriePrestation:
+    pattern:  /categorieprestation/modifier/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:CategoriePrestation:modifier }
+
+GestionEntrepriseParametrageBundle_supprimerCategoriePrestation:
+    pattern:  /categorieprestation/supprimer/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:CategoriePrestation:supprimer }
+    
+
+# Civilité
+GestionEntrepriseParametrageBundle_listeCivilite:
+    pattern:  /civilite/liste
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Civilite:liste }
+
+
+GestionEntrepriseParametrageBundle_ajoutCivilite:
+    pattern:  /civilite/ajout
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Civilite:ajout }
+    
+GestionEntrepriseParametrageBundle_modifierCivilite:
+    pattern:  /civilite/modifier/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Civilite:modifier }
+
+GestionEntrepriseParametrageBundle_supprimerCivilite:
+    pattern:  /civilite/supprimer/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:Civilite:supprimer }
+    
+
+
+# Types de client
+GestionEntrepriseParametrageBundle_listeTypeClient:
+    pattern:  /typeclient/liste
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypeClient:liste }
+
+
+GestionEntrepriseParametrageBundle_ajoutTypeClient:
+    pattern:  /typeclient/ajout
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypeClient:ajout }
+    
+GestionEntrepriseParametrageBundle_modifierTypeClient:
+    pattern:  /typeclient/modifier/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypeClient:modifier }
+
+GestionEntrepriseParametrageBundle_supprimerTypeClient:
+    pattern:  /typeclient/supprimer/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:TypeClient:supprimer }
+
+# Moyen de Paiement
+GestionEntrepriseParametrageBundle_listeMoyenDePaiement:
+    pattern:  /moyendepaiement/liste
+    defaults: { _controller: GestionEntrepriseParametrageBundle:MoyenDePaiement:liste }
+
+
+GestionEntrepriseParametrageBundle_ajoutMoyenDePaiement:
+    pattern:  /moyendepaiement/ajout
+    defaults: { _controller: GestionEntrepriseParametrageBundle:MoyenDePaiement:ajout }
+    
+GestionEntrepriseParametrageBundle_modifierMoyenDePaiement:
+    pattern:  /moyendepaiement/modifier/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:MoyenDePaiement:modifier }
+
+GestionEntrepriseParametrageBundle_supprimerMoyenDePaiement:
+    pattern:  /moyendepaiement/supprimer/{id}
+    defaults: { _controller: GestionEntrepriseParametrageBundle:MoyenDePaiement:supprimer }
+    
+
